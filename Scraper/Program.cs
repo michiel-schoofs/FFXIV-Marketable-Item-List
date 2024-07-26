@@ -1,15 +1,15 @@
 ﻿using System.Collections.Concurrent;
 using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
 
 namespace XIV_Item_Scraper
 {
     internal class Program
     {
         //output file
-        private const string OutputFile = "output.csv";
+        private const string _outputFile = "output.csv";
         //max number of threads to request XIV API
         private static int _numThreads = 10;
+        public const char Delimiter = ';';
 
         static  void Main(string[] args)
         {
@@ -47,11 +47,12 @@ namespace XIV_Item_Scraper
                         Thread.Sleep(1000 - (int)sw.ElapsedMilliseconds);
                     }
                 }catch{}
-            }); 
+            });
 
             //output dictionary to file
             string fileContent = string.Join('\n', items);
-            File.WriteAllText(OutputFile, $"ID,Name_EN,Name_DE,Name_FR,Name_JA\n{fileContent}");      
+            string[] headers= new string[] { "ID", "Name_EN", "Name_DE", "Name_FR", "Name_JA" };
+            File.WriteAllText(_outputFile, $"{string.Join(Delimiter, headers)}\n{fileContent}");      
         }
     }
 }

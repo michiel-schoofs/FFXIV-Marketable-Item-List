@@ -11,7 +11,8 @@
 
         public override string ToString()
         {
-            return $"{ID},{Name_en},{Name_de},{Name_fr},{Name_ja}";
+            string[] values = [ID.ToString(), Name_en, Name_de, Name_fr, Name_ja];
+            return string.Join(Program.Delimiter, values);
         }
     }
 }
