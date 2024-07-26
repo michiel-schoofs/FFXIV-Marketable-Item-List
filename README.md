@@ -7,7 +7,7 @@ A project the compiles a [CSV](output.csv) consisting of ID and the names in Eng
 The list is a compilation of two public API's:
 
 -  [Universalis](https://docs.universalis.app/) for the list of item ids that can be listed on the market board.
--  [XIVApi](https://xivapi.com/) for the names associated with the ids.
+-  [XIVApi](https://xivapi.com/) for the names associated with the id.
 
 This is a vanilla .Net 8 project with no external dependencies.
 
